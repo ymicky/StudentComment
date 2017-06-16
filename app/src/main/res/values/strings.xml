@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StundentComment</string>
+    <string name="comment1">Test1</string>
+    <string name="comment2">Test2</string>
 </resources>

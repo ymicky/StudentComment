@@ -19,9 +19,8 @@
         android:id="@+id/textview_student_comment"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:textSize="34sp"
         android:layout_weight="45"
         android:gravity="center"
-         />
+        android:textSize="34sp" />
 
 </LinearLayout>

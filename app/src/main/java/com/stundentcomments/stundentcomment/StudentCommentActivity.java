@@ -84,8 +84,18 @@ public class StudentCommentActivity extends FragmentActivity {
         }
 
         @Override
-        public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+        public Fragment getItem(int contentNr) {
+            Content content = new Content("",0);
+            switch (contentNr)
+            {
+                case 0:
+                    content = new Content(getResources().getString(R.string.comment1),R.drawable.pic_1);
+                    break;
+                case 1:
+                    content = new Content(getResources().getString(R.string.comment2),R.drawable.pic_2);
+                    break;
+            }
+            return ScreenSlidePageFragment.newInstance(content);
         }
 
         @Override
