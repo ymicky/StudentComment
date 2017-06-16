@@ -15,7 +15,7 @@ import android.support.v4.app.FragmentManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StundentCommentActivity extends FragmentActivity {
+public class StudentCommentActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
