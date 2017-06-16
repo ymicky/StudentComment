@@ -33,7 +33,7 @@ public class StudentCommentActivity extends FragmentActivity {
     private PagerAdapter mPagerAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
         lContent = new ArrayList<>();
@@ -63,12 +63,30 @@ public class StudentCommentActivity extends FragmentActivity {
     }
 
     // In die ArrayListe wird der anzuzeigende Content eingefügt
-    private void FillContentList()
+    private void FillContentList()  {
+        try {
+            AddContent(getResString(R.string.comment1), R.drawable.pic_1);
+            AddContent(getResString(R.string.comment2), R.drawable.pic_2);
+            AddContent("Test3", R.drawable.pic_1);
+            NUM_PAGES = lContent.size();
+        }
+        catch (Exception e)
+        {
+            Log.e("Fill",e.getMessage());
+        }
+    }
+
+    private String getResString(int iID)
     {
-        lContent.add(new Content("TestText", R.drawable.pic_1));
-        lContent.add(new Content("xxx223", R.drawable.pic_2));
-        lContent.add(new Content("Test3", R.drawable.pic_1));
-        NUM_PAGES = lContent.size();
+       return getResources().getString(iID);
+    }
+
+    private void AddContent(String sText, int iId)throws Exception {
+        Content con = new Content(sText,iId);
+        if (con.isValid())
+            lContent.add(con);
+        else
+            throw new Exception("Content ist leer!");
     }
     //@Override
     //public void onBackPressed() {
