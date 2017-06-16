@@ -21,8 +21,8 @@ public class ScreenSlidePageFragment extends Fragment {
     {
         ScreenSlidePageFragment f = new ScreenSlidePageFragment();
         Bundle args = new Bundle();
-        args.putInt("contentPic",content.iPic);
-        args.putString("contenComment",content.comment);
+        args.putInt("contentPic",content.getPicId());
+        args.putString("contenComment",content.getComment());
         f.setArguments(args);
         return f;
     }

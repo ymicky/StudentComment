@@ -19,8 +19,8 @@ public class StudentCommentActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 2;
-
+    private static int NUM_PAGES = 0;
+    private ArrayList<Content> lContent;
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
@@ -36,32 +36,40 @@ public class StudentCommentActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
-
+        lContent = new ArrayList<>();
+        FillContentList();
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
 
-        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                ScreenSlidePageFragment.index = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+//        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                ScreenSlidePageFragment.index = position;
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
     }
 
-
+    // In die ArrayListe wird der anzuzeigende Content eingefügt
+    private void FillContentList()
+    {
+        lContent.add(new Content("TestText", R.drawable.pic_1));
+        lContent.add(new Content("xxx223", R.drawable.pic_2));
+        lContent.add(new Content("Test3", R.drawable.pic_1));
+        NUM_PAGES = lContent.size();
+    }
     //@Override
     //public void onBackPressed() {
     //    if (mPager.getCurrentItem() == 0) {
@@ -78,23 +86,16 @@ public class StudentCommentActivity extends FragmentActivity {
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
      */
-    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter{
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int contentNr) {
-            Content content = new Content("",0);
-            switch (contentNr)
-            {
-                case 0:
-                    content = new Content(getResources().getString(R.string.comment1),R.drawable.pic_1);
-                    break;
-                case 1:
-                    content = new Content(getResources().getString(R.string.comment2),R.drawable.pic_2);
-                    break;
-            }
+            Content content = lContent.get(contentNr);
+            if (!content.isValid())
+                return new ScreenSlidePageFragment();
             return ScreenSlidePageFragment.newInstance(content);
         }
 

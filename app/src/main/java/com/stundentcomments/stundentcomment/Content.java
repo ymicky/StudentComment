@@ -7,12 +7,36 @@ import android.media.Image;
  */
 
 public class Content {
+    private String sComment = "";
+    private int iPic = -1;
 
     public Content(String comment, int pic){
-        this.comment = comment;
+        this.sComment = comment;
         this.iPic = pic;
     }
 
-    String comment;
-    int iPic;
+    public boolean hasPic()
+    {
+        return (this.iPic != -1);
+    }
+
+    public boolean hasComment()
+    {
+        return (this.sComment != "");
+    }
+
+    public boolean isValid()
+    {
+        return (hasPic() && hasComment());
+    }
+    public String getComment()
+    {
+        return this.sComment;
+    }
+
+    public int getPicId()
+    {
+        return this.iPic;
+    }
+
 }
