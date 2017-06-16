@@ -15,8 +15,10 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class ScreenSlidePageFragment extends Fragment {
+    private TextView tv;
+    private ImageView iv;
 
-
+    // Argumente für Bild und Text übergeben
     public static ScreenSlidePageFragment newInstance(Content content)
     {
         ScreenSlidePageFragment f = new ScreenSlidePageFragment();
@@ -32,43 +34,19 @@ public class ScreenSlidePageFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.student_comment_activity, container, false);
-       // fillList();
+        // Referenzierung der Views
         tv = (TextView) rootView.findViewById(R.id.textview_student_comment);
         iv = (ImageView) rootView.findViewById(R.id.imageview_stundent_pic);
-        SetContent();
-      //  setContent();
+        setContent();
         return rootView;
     }
 
-    private void SetContent()
+    // Bild und Text setzen
+    private void setContent()
     {
         Bundle args = getArguments();
-        tv.setText(args.getString("contenComment"));
+        tv.setText(args.getString("contentComment"));
         iv.setImageResource(args.getInt("contentPic"));
     }
-    ArrayList<Content> conList = new ArrayList<Content>();
-    public static int index;
-    private TextView tv;
-    private ImageView iv;
 
-    //@Override
-    //public void onViewCreated(View view, Bundle savedInstanceState) {
-    //    super.onViewCreated(view, savedInstanceState);
-
-    //  tv = (TextView) view.findViewById(R.id.textview_student_comment);
-    // iv = (ImageView) view.findViewById(R.id.imageview_stundent_pic);
-
-    // setContent();
-    //}
-
-
-   // public void fillList(){
-   //     conList.add(new Content("TestText", R.drawable.pic_1));
-   //     conList.add(new Content("xxx223", R.drawable.pic_2));
-   // }
-
-   // private void setContent(){
-   //     iv.setImageResource(conList.get(index).iPic);
-   //     tv.setText(conList.get(index).comment);
-   // }
 }

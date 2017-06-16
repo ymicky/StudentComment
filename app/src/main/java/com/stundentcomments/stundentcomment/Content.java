@@ -38,5 +38,4 @@ public class Content {
     {
         return this.iPic;
     }
-
 }
