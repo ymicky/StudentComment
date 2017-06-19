@@ -1,5 +1,6 @@
 package com.stundentcomments.stundentcomment;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -43,6 +44,8 @@ public class StudentCommentActivity extends FragmentActivity {
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(mPager, true);
 
 //        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 //            @Override
