@@ -70,7 +70,7 @@ public class StudentCommentActivity extends FragmentActivity {
         try {
             AddContent(getResString(R.string.comment1), R.drawable.pic_1);
             AddContent(getResString(R.string.comment2), R.drawable.pic_2);
-            AddContent("Test3", R.drawable.pic_1);
+            //AddContent("Test3", R.drawable.pic_1);
             NUM_PAGES = lContent.size();
         }
         catch (Exception e)
