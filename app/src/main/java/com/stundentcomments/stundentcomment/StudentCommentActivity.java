@@ -46,23 +46,6 @@ public class StudentCommentActivity extends FragmentActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mPager, true);
-
-//        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                ScreenSlidePageFragment.index = position;
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
     }
 
     // In die ArrayListe wird der anzuzeigende Content eingefügt
